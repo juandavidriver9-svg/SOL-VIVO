@@ -1,125 +1,290 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sol Vivo - Punto de Carga Solar</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sol Vivo — Punto de Carga Solar</title>
+  <meta name="description" content="Sol Vivo: Punto de carga solar en el Colegio La Benedikta. Proyecto para reducir huella de carbono y contaminación." />
   <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(to bottom, #e3f2fd, #f5f5f5);
-      margin: 0;
-      padding: 0;
-      color: #333;
+    :root{
+      --bg-top: #eaf6ff;
+      --bg-bottom: #f6f7f8;
+      --pastel-blue: #9fc9ef;
+      --pastel-gray: #e6e9eb;
+      --accent: #1976d2;
+      --card: #ffffff;
+      --muted: #6b757d;
+      --radius: 14px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: Inter, "Segoe UI", Roboto, system-ui, -apple-system, "Helvetica Neue", Arial;
+      background: linear-gradient(180deg,var(--bg-top),var(--bg-bottom));
+      color:#1f2933;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
     }
 
-    header {
-      text-align: center;
-      padding: 30px 20px;
-      background: #cfd8dc;
-      border-bottom: 3px solid #90caf9;
+    /* Header / logo */
+    .site-header{
+      max-width:1100px;
+      margin:26px auto;
+      display:flex;
+      align-items:center;
+      gap:18px;
+      padding:16px;
+      border-radius:var(--radius);
+      background:linear-gradient(90deg, rgba(255,255,255,0.7), rgba(255,255,255,0.55));
+      box-shadow: 0 6px 24px rgba(20,40,60,0.06);
+      border: 1px solid rgba(0,0,0,0.03);
+    }
+    .logo-wrap{
+      display:flex;
+      align-items:center;
+      gap:14px;
+    }
+    .logo-img{
+      width:92px;
+      height:92px;
+      object-fit:contain;
+      border-radius:10px;
+      background:var(--pastel-gray);
+      padding:8px;
+      box-shadow: 0 4px 14px rgba(25,118,210,0.06);
+    }
+    /* Fallback text logo (hidden unless image falla) */
+    #logoText{
+      display:none;
+      font-weight:800;
+      font-size:1.6rem;
+      color:var(--accent);
+      letter-spacing:0.6px;
+    }
+    .brand-title{
+      font-size:1.6rem;
+      color:var(--accent);
+      margin:0;
+    }
+    .brand-sub{
+      margin:0;
+      color:var(--muted);
+      font-size:0.95rem;
     }
 
-    header img {
-      max-width: 140px;
-      margin-bottom: 10px;
+    /* Main content */
+    .container{
+      max-width:1100px;
+      margin:18px auto;
+      padding:18px;
     }
-
-    header h1 {
-      font-size: 2.5rem;
-      color: #1976d2;
-      margin: 10px 0;
+    .card{
+      background:var(--card);
+      border-radius:var(--radius);
+      padding:20px;
+      box-shadow: 0 8px 30px rgba(9,30,66,0.04);
+      border:1px solid rgba(16,24,40,0.03);
     }
+    h2{color:var(--accent); margin-top:0}
+    p{font-size:1rem; color:#223}
 
-    main {
-      max-width: 900px;
-      margin: 30px auto;
-      padding: 20px;
-      background: #ffffffd9;
-      border-radius: 12px;
-      box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
-    }
-
-    main p {
-      font-size: 1.2rem;
-      line-height: 1.6;
-      text-align: justify;
-    }
-
+    /* Diagram area */
     .diagram {
-      margin-top: 40px;
-      text-align: center;
+      margin-top:20px;
+      display:flex;
+      gap:22px;
+      align-items:flex-start;
+      flex-wrap:wrap;
+      justify-content:center;
+    }
+    .diagram-expl{
+      min-width:260px;
+      max-width:360px;
+    }
+    .list {
+      margin:10px 0 0 0;
+      padding:0;
+      list-style:none;
+    }
+    .list li{
+      background:#f3fbff;
+      border:1px solid rgba(41,121,255,0.06);
+      padding:10px 12px;
+      margin-bottom:8px;
+      border-radius:10px;
+      font-size:0.98rem;
     }
 
-    .diagram h2 {
-      color: #0288d1;
-      margin-bottom: 20px;
+    /* Responsive svg container */
+    .svg-wrap{
+      flex:1 1 520px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      min-width:320px;
     }
 
-    .diagram-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 40px;
-      flex-wrap: wrap;
+    /* Footer */
+    footer{
+      max-width:1100px;
+      margin:18px auto 50px;
+      text-align:center;
+      color:var(--muted);
+      font-size:0.92rem;
     }
 
-    .diagram-box {
-      background: #e1f5fe;
-      border: 2px solid #90caf9;
-      border-radius: 15px;
-      padding: 20px;
-      width: 220px;
-      text-align: center;
-      font-size: 1rem;
-      box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
-    }
-
-    footer {
-      text-align: center;
-      padding: 15px;
-      margin-top: 30px;
-      background: #cfd8dc;
-      color: #555;
-      font-size: 0.9rem;
+    /* Small screens */
+    @media (max-width:720px){
+      .site-header{flex-direction:column; gap:10px; padding:14px}
+      .logo-img{width:76px;height:76px}
+      .diagram{gap:14px}
+      .svg-wrap{min-width:280px}
     }
   </style>
 </head>
 <body>
-  <header>
-    <!-- Reemplaza el src con la ruta de tu logo -->
-    <img src="logo.png" alt="Logo Sol Vivo">
-    <h1>Sol Vivo</h1>
+  <header class="site-header" role="banner" aria-label="Cabecera Sol Vivo">
+    <div class="logo-wrap" aria-hidden="false">
+      <!-- Reemplaza 'logo.png' por el archivo real en tu repo. Si falla, se muestra el texto -->
+      <img id="logoImg" class="logo-img" src="logo.png" alt="Logo Sol Vivo" 
+           onerror="this.style.display='none'; document.getElementById('logoText').style.display='inline-block'">
+      <span id="logoText">Sol Vivo</span>
+    </div>
+
+    <div>
+      <h1 class="brand-title">Sol Vivo</h1>
+      <p class="brand-sub">Punto de carga solar — Colegio La Benedikta</p>
+    </div>
   </header>
 
-  <main>
-    <p>
-      El proyecto <strong>Punto de Carga Solar en el Colegio La Benedikta</strong> busca fomentar el uso de energías limpias, 
-      permitiendo a estudiantes y docentes cargar sus dispositivos electrónicos a través de paneles solares. 
-      De esta manera se promueve la sostenibilidad, el cuidado del medio ambiente y la educación en energías renovables.
-    </p>
+  <main class="container" role="main">
+    <section class="card" aria-labelledby="importancia">
+      <h2 id="importancia">Importancia del proyecto</h2>
+      <p>
+        <strong>Sol Vivo</strong> es un proyecto de implementación de puntos de carga solar en el Colegio
+        <strong>La Benedikta</strong>. Permite a estudiantes y docentes cargar dispositivos con energía limpia proveniente
+        de paneles solares, reduce la dependencia de energía de red y promueve educación práctica sobre energías renovables.
+        Además, contribuye a disminuir emisiones directas e indirectas de CO₂, reduce la contaminación local y sirve como
+        herramienta pedagógica para concienciar sobre sostenibilidad.
+      </p>
 
-    <div class="diagram">
-      <h2>¿Cómo ayuda a reducir la huella de carbono?</h2>
-      <div class="diagram-container">
-        <div class="diagram-box">
-          Uso de energía solar<br> ☀️
+      <div class="diagram" aria-hidden="false">
+        <div class="svg-wrap card" role="img" aria-label="Diagrama flujo solar">
+          <!-- Diagrama SVG: flujo Sol -> Panel -> Batería -> Dispositivo + barras antes/después CO2 -->
+          <svg viewBox="0 0 1000 420" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="svgTitle svgDesc">
+            <title id="svgTitle">Diagrama de cómo el punto de carga solar reduce huella de carbono</title>
+            <desc id="svgDesc">Flujo energético desde el sol hasta el dispositivo y comparación de emisiones antes y después.</desc>
+
+            <!-- Background rounded -->
+            <rect x="10" y="8" width="980" height="402" rx="16" fill="white" stroke="#eef7ff" stroke-width="2"/>
+
+            <!-- Flow boxes -->
+            <!-- Sun -->
+            <g transform="translate(40,40)">
+              <circle cx="80" cy="60" r="36" fill="#ffd27a"/>
+              <text x="130" y="68" font-family="Arial, sans-serif" font-size="18" fill="#223">Sol</text>
+              <rect x="120" y="30" width="180" height="60" rx="10" fill="#eaf8ff" stroke="#bfe6ff" />
+              <text x="135" y="68" font-family="Arial" font-size="14" fill="#184e7a">Energía solar capturada</text>
+            </g>
+
+            <!-- Arrow 1 -->
+            <path d="M320 80 L380 80" stroke="#8fbfe6" stroke-width="6" stroke-linecap="round" />
+
+            <!-- Panels -->
+            <g transform="translate(400,35)">
+              <rect x="0" y="20" width="220" height="70" rx="10" fill="#d5eefc" stroke="#90caf9"/>
+              <text x="20" y="58" font-family="Arial" font-size="15" fill="#124a66">Paneles solares</text>
+            </g>
+
+            <!-- Arrow 2 -->
+            <path d="M640 80 L700 80" stroke="#8fbfe6" stroke-width="6" stroke-linecap="round" />
+
+            <!-- Battery -->
+            <g transform="translate(720,18)">
+              <rect x="0" y="20" width="220" height="70" rx="10" fill="#e9f8f0" stroke="#a5e7c5"/>
+              <text x="20" y="48" font-family="Arial" font-size="15" fill="#0f5b3d">Batería / Regulador</text>
+            </g>
+
+            <!-- Arrow to device -->
+            <path d="M375 125 L375 190" stroke="#c0dff4" stroke-width="6" stroke-linecap="round" />
+            <path d="M375 190 L520 190" stroke="#c0dff4" stroke-width="6" stroke-linecap="round" />
+
+            <!-- Device box -->
+            <g transform="translate(520,150)">
+              <rect x="0" y="-10" width="200" height="90" rx="12" fill="#fff3e9" stroke="#ffd6a5"/>
+              <text x="20" y="30" font-family="Arial" font-size="15" fill="#6b3e12">Punto de carga</text>
+              <text x="20" y="52" font-family="Arial" font-size="13" fill="#6b3e12">Cargas para celulares y equipos</text>
+            </g>
+
+            <!-- CO2 comparison: barras -->
+            <g transform="translate(80,240)">
+              <text x="0" y="-8" font-family="Arial" font-size="16" fill="#184e7a">Emisiones (ejemplo)</text>
+
+              <!-- Antes -->
+              <rect x="0" y="10" width="100" height="120" rx="6" fill="#ffb4a2"/>
+              <text x="10" y="150" font-family="Arial" font-size="12" fill="#6b2b1a">Antes</text>
+              <text x="6" y="12" font-family="Arial" font-size="12" fill="#6b2b1a">100%</text>
+
+              <!-- Después -->
+              <rect x="140" y="40" width="100" height="90" rx="6" fill="#bfe7c6"/>
+              <text x="150" y="150" font-family="Arial" font-size="12" fill="#13502b">Después</text>
+              <text x="146" y="42" font-family="Arial" font-size="12" fill="#13502b">~40%</text>
+
+              <!-- Explanatory arrows/lines -->
+              <line x1="110" y1="60" x2="140" y2="95" stroke="#9bb" stroke-width="2" stroke-dasharray="4 4"/>
+            </g>
+
+            <!-- Small caption -->
+            <text x="30" y="395" font-family="Arial" font-size="11" fill="#667">Diagrama: flujo energético y reducción estimada de emisiones al usar energía solar en lugar de red convencional.</text>
+          </svg>
         </div>
-        <div class="diagram-box">
-          Menor consumo de energía convencional<br> 🔋
-        </div>
-        <div class="diagram-box">
-          Reducción de emisiones de CO₂<br> 🌍
-        </div>
-        <div class="diagram-box">
-          Menos contaminación ambiental<br> 🌱
-        </div>
+
+        <aside class="diagram-expl">
+          <h3 style="margin-top:0">¿Cómo reduce huella y contaminación?</h3>
+          <ul class="list" aria-label="Beneficios">
+            <li>Generación local de energía limpia (paneles solares).</li>
+            <li>Menor uso de energía fósil de la red eléctrica.</li>
+            <li>Reducción directa de emisiones de CO₂ por cargas.</li>
+            <li>Menos contaminación y ejemplo educativo para la comunidad.</li>
+          </ul>
+        </aside>
       </div>
-    </div>
+    </section>
+
+    <section style="margin-top:18px" class="card" aria-labelledby="deploy">
+      <h2 id="deploy">Publicar en GitHub Pages (resumen en español)</h2>
+      <ol>
+        <li>Guarda este archivo como <code>index.html</code> en la raíz de tu repositorio y sube también <code>logo.png</code> (si tienes el logo).</li>
+        <li>Ve a tu repositorio en GitHub → <strong>Configuración</strong> → <strong>Páginas</strong>.</li>
+        <li>En la sección <strong>Compilación e implementación</strong>, en <strong>Fuentes</strong> (o "Implementación desde una sucursal"), selecciona:
+          <ul>
+            <li><strong>Rama:</strong> <code>main</code> (o la rama donde subiste el archivo)</li>
+            <li><strong>Carpeta:</strong> <code>/ (root)</code></li>
+          </ul>
+        </li>
+        <li>Haz clic en <strong>Guardar</strong>. La URL pública aparecerá en esa misma página (aparece un recuadro con el enlace a tu sitio).</li>
+        <li>Si la página muestra error 404, verifica que el archivo sea <code>index.html</code>, esté en la raíz y que la rama seleccionada sea la correcta.</li>
+      </ol>
+    </section>
   </main>
 
   <footer>
-    © 2025 Proyecto Sol Vivo - Colegio La Benedikta
+    © <span id="year"></span> Sol Vivo — Colegio La Benedikta
   </footer>
+
+  <script>
+    // Fallback para logo y año dinámico
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // Si imagen no carga, se muestra el texto (ya manejado por onerror), añadimos pequeño estilo:
+    (function(){
+      var el = document.getElementById('logoText');
+      el.style.fontSize = '1.25rem';
+      el.style.background = 'linear-gradient(90deg, rgba(145,193,238,0.08), rgba(255,255,255,0))';
+      el.style.padding = '6px 10px';
+      el.style.borderRadius = '6px';
+      el.style.color = 'var(--accent)';
+    })();
+  </script>
 </body>
 </html>
